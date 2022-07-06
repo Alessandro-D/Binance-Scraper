@@ -1,0 +1,5 @@
+pandas
+python-binance
+python-dotenv
+python-settings
+asyncio
