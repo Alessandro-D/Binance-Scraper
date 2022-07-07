@@ -1,6 +1,5 @@
 import os
 from dotenv import load_dotenv
-import pandas as pd
 from binance.client import Client
 from binance import BinanceSocketManager
 import asyncio

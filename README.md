@@ -11,3 +11,7 @@
 ### Execution
 
 - `python main.py`
+
+### Settings
+
+- choose the crypto currency exchange symbols to scrape in settings.py
