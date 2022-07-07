@@ -26,11 +26,12 @@ async def main():
     bsm = BinanceSocketManager(client)
 
     # Defining sockets based on settings
-    sockets = settings.SOCKETS
-    for s in sockets:
+    symbols = settings.SYMBOLS
+
+    # Gathering data into CSV
+    for s in symbols:
         socket = bsm.trade_socket(s)
-        data = await getData(socket)
-        writeRow(data)
+        writeRow(await getData(socket))
 
 async def getData(socket):
     """
