@@ -7,7 +7,6 @@ import asyncio
 import  csv
 from csv import writer
 from python_settings import settings
-import multiprocessing
 
 process_list = []
 
