@@ -1,4 +1,4 @@
-# BinScraper
+# Binance Scraper
 
 ### Configuration
 
