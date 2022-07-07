@@ -3,4 +3,3 @@ python-binance
 python-dotenv
 python-settings
 asyncio
-multiprocessing
