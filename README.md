@@ -2,11 +2,12 @@
 
 ### Configuration
 
-- `.env` secrets: api_key, api_secret
+- **.env** secrets: api_key, api_secret
 
 ### Installation
 
-- python virtual environment: `pip install -r requirements.txt`
+- (optional) python virtual environment
+- `pip install -r requirements.txt` to install required libraries
 
 ### Execution
 
