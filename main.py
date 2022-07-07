@@ -7,7 +7,9 @@ import asyncio
 import  csv
 from csv import writer
 from python_settings import settings
+import multiprocessing
 
+process_list = []
 
 async def main():
     """
@@ -21,17 +23,31 @@ async def main():
     # Loading settings
     os.environ["SETTINGS_MODULE"] = 'settings' 
 
-    # Creating the client and BSM
+    # Creating the client
     client = Client(api_key, api_secret)
-    bsm = BinanceSocketManager(client)
 
     # Defining sockets based on settings
     symbols = settings.SYMBOLS
 
-    # Gathering data into CSV
+    # Multiprocessing the api requests
+    tasks = []
     for s in symbols:
-        socket = bsm.trade_socket(s)
-        writeRow(await getData(socket))
+        task = asyncio.create_task(scrape_process(s, client))
+        tasks.append(task)
+
+    # Waiting for all the processes to end
+    for task in tasks:
+        await task
+
+    
+
+async def scrape_process(s, client):
+    """
+    Gathering data into csv
+    """
+    bsm = BinanceSocketManager(client)
+    socket = bsm.trade_socket(s)
+    writeRow(await getData(socket))
 
 async def getData(socket):
     """
