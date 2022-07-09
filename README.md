@@ -15,4 +15,4 @@
 
 ### Settings
 
-- choose the crypto currency exchange symbols to scrape in settings.py
+- choose the crypto currency exchange symbols to scrape in **settings.py**
